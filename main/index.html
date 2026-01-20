@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+
+  <body>
+    <!-- header -->
+    <header id="navHeader">
+      <div class="logo" id="logoName">MyPortfolio</div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="navLinks" id="navLinks">
+        <ul>
+          <li><a href="#aboutMe">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="mainContent" id="aboutMe">
+      <!-- Main content goes here -->
+      <section class="aboutMe" id="aboutMe">
+        <img src="../assets/pfp1.JPG" alt="pfp1" class="aboutPic" />
+        <div class="aboutText" id="aboutText">
+          <h1 class="welcomeText">Hi! I'm John Raymond Nieto</h1>
+          <p class="introText">
+            Full-stack Web Developer | Turning ideas into elegant digital
+            solutions. Currently seeking internship/OJT opportunities where I
+            can apply my skills and grow as a professional. Let's collaborate
+            and create something amazing together!
+          </p>
+          <!-- buttons in about section -->
+          <div class="aboutActions">
+            <a class="btn contactMe" href="#contact">Contact Me</a>
+            <a
+              class="btn btnSecondary resumePreview"
+              href="../assets/jnietoResume.pdf"
+              target="_blank"
+              rel="noopener">
+              Resume
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- Education Section -->
+      <section class="education" id="education">
+        <h2 class="sectionTitle">Education</h2>
+        <div class="educationList">
+          <div class="educationCard">
+            <div class="educationHeader">
+              <h3 class="schoolName">STI COLLEGE SANTA MARIA</h3>
+              <span class="educationBadge">Current</span>
+            </div>
+            <p class="educationDegree">
+              Bachelor of Science in Information Technology
+            </p>
+            <p class="educationDate">September 2022 – Present</p>
+          </div>
+
+          <div class="educationCard">
+            <div class="educationHeader">
+              <h3 class="schoolName">GRACE OF SHEKINAH SCHOOL</h3>
+            </div>
+            <p class="educationDegree">Junior High School</p>
+            <p class="educationDate">June 2016 – April 2020</p>
+          </div>
+
+          <div class="educationCard">
+            <div class="educationHeader">
+              <h3 class="schoolName">GRACE OF SHEKINAH SCHOOL</h3>
+            </div>
+            <p class="educationDegree">Senior High School – STEM Strand</p>
+            <p class="educationDate">August 2020 – April 2022</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="projects" id="projects">
+        <h2 class="sectionTitle">Projects</h2>
+        <div class="projectList">
+          <!-- Project items will go here -->
+          <div class="projectCard">
+            <h2 class="projectTitle">AlpHFAbet - Capstone Project</h2>
+            <ul class="projectPreview">
+              <li>
+                A web-based school portal for Holy Family Academy of Santa Maria
+                Bulacan Inc. that integrates essential modules including
+                Administrative Functions, Pre-Enrollment, Document Upload and
+                Verification, Hiring and Application Process, and Application
+                Status Tracking.
+              </li>
+              <li>
+                Developed using HTML, CSS, and JavaScript for the front-end,
+                with Node.js and Express.js for the back-end, and Firebase for
+                database management and storage.
+              </li>
+            </ul>
+            <img
+              src="../assets/project1.png"
+              alt="project1"
+              class="projectPic" />
+
+            <div class="footerCard" id="footerCard">
+              <a
+                href="../projects/capstone/landing/main.html"
+                class="projectLink"
+                target="_blank"
+                rel="noopener">
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="experience" id="experience">
+        <h2 class="sectionTitle">Experience</h2>
+        <div class="experienceList">
+          <div class="experienceCard">
+            <div class="experienceHeader">
+              <div class="experienceCompany">
+                <h3 class="companyName">Public Employment Service Office</h3>
+                <p class="jobTitle">Data Encoder</p>
+                <p class="jobLocation">Santa Maria, Bulacan</p>
+              </div>
+              <span class="experienceDateBadge">June 2025 – July 2025</span>
+            </div>
+            <p class="jobDescription">
+              Encoded and processed data with high accuracy. Gained experience
+              in attention to detail and organizational skills.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="skills" id="skills">
+        <h2 class="sectionTitle">Skills</h2>
+        <div class="skillsList">
+          <div class="skillCard" style="border-color: #a78bfa">
+            <div class="skillIcon"><i class="fas fa-palette"></i></div>
+            <h3 class="skillName">UI/UX Design</h3>
+            <p class="skillDescription">Figma</p>
+          </div>
+          <div class="skillCard" style="border-color: #f472b6">
+            <div class="skillIcon"><i class="fas fa-code"></i></div>
+            <h3 class="skillName">Frontend</h3>
+            <p class="skillDescription">HTML, CSS, JavaScript</p>
+          </div>
+          <div class="skillCard" style="border-color: #34d399">
+            <div class="skillIcon"><i class="fas fa-cog"></i></div>
+            <h3 class="skillName">Backend</h3>
+            <p class="skillDescription">Node.js, Express.js</p>
+          </div>
+          <div class="skillCard" style="border-color: #fbbf24">
+            <div class="skillIcon"><i class="fas fa-globe"></i></div>
+            <h3 class="skillName">Web Development</h3>
+            <p class="skillDescription">Full-stack development</p>
+          </div>
+          <div class="skillCard" style="border-color: #60a5fa">
+            <div class="skillIcon"><i class="fas fa-database"></i></div>
+            <h3 class="skillName">Databases</h3>
+            <p class="skillDescription">MySQL, MongoDB, Firebase</p>
+          </div>
+          <div class="skillCard" style="border-color: #c084fc">
+            <div class="skillIcon"><i class="fas fa-code-branch"></i></div>
+            <h3 class="skillName">Version Control</h3>
+            <p class="skillDescription">GitHub</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact" id="contact">
+        <h2 class="sectionTitle">Get In Touch</h2>
+        <div class="contactContainer">
+          <div class="contactImageBox">
+            <img
+              src="../assets/pfp1.JPG"
+              alt="John Raymond Nieto"
+              class="contactPic" />
+          </div>
+          <div class="contactForm">
+            <p class="contactIntro">
+              Have a question or want to collaborate? Fill out the form below
+              and I'll get back to you as soon as possible.
+            </p>
+            <form class="emailForm">
+              <div class="formGroup">
+                <label for="name">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="John Doe"
+                  required />
+              </div>
+              <div class="formGroup">
+                <label for="email">Your Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required />
+              </div>
+              <div class="formGroup">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="What's this about?"
+                  required />
+              </div>
+              <div class="formGroup">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder="Tell me more about your project or inquiry..."
+                  required></textarea>
+              </div>
+              <button type="submit" class="btn submitBtn">Send Message</button>
+            </form>
+            <p class="contactEmail">
+              Or email me directly at:
+              <span class="emailHighlight">jrxymnd18@gmail.com</span>
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Email Status Modal -->
+      <div id="emailStatusModal" class="statusModal" aria-hidden="true">
+        <div
+          class="statusModalContent"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="emailStatusTitle">
+          <h3 id="emailStatusTitle" class="statusModalTitle">Message Status</h3>
+          <p id="emailStatusMessage" class="statusModalMessage"></p>
+          <button
+            type="button"
+            class="btn statusModalButton"
+            id="emailStatusOk">
+            Okay
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footerContainer">
+        <div class="footerContent">
+          <div class="footerBrand">
+            <h3 class="footerLogo">MyPortfolio</h3>
+            <p class="footerDescription">
+              Full-stack web developer passionate about creating digital
+              experiences.
+            </p>
+          </div>
+
+          <div class="footerLinks">
+            <h4 class="footerTitle">Quick Links</h4>
+            <ul>
+              <li><a href="#aboutMe">About Me</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footerContact">
+            <h4 class="footerTitle">Contact Info</h4>
+            <div class="contactItem">
+              <span class="contactIcon"><i class="fas fa-envelope"></i></span>
+              <a href="mailto:jrxymnd18@gmail.com">jrxymnd18@gmail.com</a>
+            </div>
+            <div class="contactItem">
+              <span class="contactIcon"><i class="fas fa-phone"></i></span>
+              <a href="tel:+639989207040">0998-920-7040</a>
+            </div>
+          </div>
+
+          <div class="footerSocial">
+            <h4 class="footerTitle">Follow Me</h4>
+            <div class="socialLinks">
+              <a href="#" class="socialLink" title="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a href="#" class="socialLink" title="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" class="socialLink" title="Facebook"
+                ><i class="fab fa-facebook"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footerDivider"></div>
+
+        <div class="footerBottom">
+          <p>&copy; 2025 John Raymond Nieto. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
