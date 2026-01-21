@@ -1,0 +1,132 @@
+/* Calendar Container */
+.Mycalendar {
+    box-sizing: border-box;
+    border: 1px solid #e6eef3;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Calendar Legend */
+.calendar-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* FullCalendar Customization */
+:root {
+    --fc-daygrid-event-dot-width: 10px;
+    --fc-border-color: #e5e7eb;
+    --fc-button-bg-color: #2e8b57;
+    --fc-button-border-color: #2e8b57;
+    --fc-button-hover-bg-color: #267349;
+    --fc-button-hover-border-color: #267349;
+    --fc-button-active-bg-color: #1f5f3a;
+    --fc-button-active-border-color: #1f5f3a;
+}
+
+/* Calendar events */
+.fc-daygrid-event {
+    position: relative;
+    white-space: nowrap;
+    border-radius: 4px;
+    font-size: 13px;
+    padding: 2px 4px;
+    margin: 1px 0;
+    cursor: pointer;
+    border: none !important;
+}
+
+.fc-daygrid-event:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Calendar header */
+.fc .fc-toolbar-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Today button */
+.fc .fc-button {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+/* Calendar cells */
+.fc .fc-daygrid-day {
+    background: #ffffff;
+}
+
+.fc .fc-daygrid-day:hover {
+    background: #f9fafb;
+}
+
+.fc .fc-day-today {
+    background: #f0fdf4 !important;
+}
+
+/* Day numbers */
+.fc .fc-daygrid-day-number {
+    color: #374151;
+    font-weight: 500;
+    padding: 8px;
+}
+
+/* Event text */
+.fc-event-title {
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .Mycalendar {
+        padding: 15px;
+    }
+
+    .calendar-legend {
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .legend-item {
+        font-size: 13px;
+    }
+
+    .fc .fc-toolbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: 18px;
+    }
+}

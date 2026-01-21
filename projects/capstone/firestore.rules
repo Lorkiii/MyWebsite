@@ -1,0 +1,159 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ===== HELPER FUNCTIONS =====
+    
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return isSignedIn() && 
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    function isApplicant() {
+      return isSignedIn() && 
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'applicant';
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    // ===== USER PROFILES =====
+    match /users/{userId} {
+      // Users can read their own profile, admins can read all
+      allow read: if isOwner(userId) || isAdmin();
+      
+      // Users can update their own profile (limited fields)
+      // Admins can update any profile
+      allow write: if isOwner(userId) || isAdmin();
+    }
+    
+    // ===== TEACHER APPLICANTS =====
+    match /teacherApplicants/{applicantId} {
+      // Applicants can read their own application, admins can read all
+      allow read: if isAdmin() || 
+                     (isApplicant() && resource.data.uid == request.auth.uid);
+      
+      // Only applicants can create their own application
+      allow create: if isApplicant() && request.resource.data.uid == request.auth.uid;
+      
+      // Applicants can update their own, admins can update any
+      allow update: if isAdmin() || 
+                       (isApplicant() && resource.data.uid == request.auth.uid);
+      
+      // Only admins can delete
+      allow delete: if isAdmin();
+    }
+    
+    // ===== JHS APPLICANTS =====
+    match /jhsApplicants/{applicantId} {
+      // Only admins can read
+      allow read: if isAdmin();
+      
+      // Public form submission (no auth required)
+      allow create: if true;
+      
+      // Only admins can update/delete
+      allow update, delete: if isAdmin();
+    }
+    
+    // ===== SHS APPLICANTS =====
+    match /shsApplicants/{applicantId} {
+      // Only admins can read
+      allow read: if isAdmin();
+      
+      // Public form submission (no auth required)
+      allow create: if true;
+      
+      // Only admins can update/delete
+      allow update, delete: if isAdmin();
+    }
+    
+    // ===== APPLICANT MESSAGES =====
+    match /applicant_messages/{messageId} {
+      // Applicants can read messages where they're in recipients array
+      // Admins can read all messages
+      allow read: if isAdmin() || 
+                     (isApplicant() && 
+                      request.auth.uid in resource.data.recipients);
+      
+      // Only admins can create/update messages
+      allow create, update: if isAdmin();
+      
+      // Only admins can delete (archive)
+      allow delete: if isAdmin();
+    }
+    
+    // ===== ANNOUNCEMENTS (Public Read) =====
+    match /announcements/{announcementId} {
+      // Anyone can read announcements (public landing page)
+      allow read: if true;
+      
+      // Only admins can create/update/delete
+      allow write: if isAdmin();
+    }
+    
+    // ===== ENROLLMENT SETTINGS (Public Read) =====
+    match /enrollment_settings/{settingId} {
+      // Anyone can read enrollment status (public landing page)
+      allow read: if true;
+      
+      // Only admins can modify settings
+      allow write: if isAdmin();
+    }
+    
+    // ===== ACTIVITY LOGS (Admin Only) =====
+    match /activity_logs/{logId} {
+      // Only admins can read activity logs
+      allow read: if isAdmin();
+      
+      // Only admins (and server) can create logs
+      allow create: if isAdmin();
+      
+      // Prevent updates/deletes (audit trail integrity)
+      allow update, delete: if false;
+    }
+    
+    // ===== ADMIN NOTES (Admin Only) =====
+    match /notes/{noteId} {
+      // Only admins can access notes
+      allow read, write: if isAdmin();
+    }
+    
+    // ===== EMAIL CONFIRMATIONS (Server Only) =====
+    match /email_confirmations/{confirmId} {
+      // Server-side only via Admin SDK
+      // No client access allowed
+      allow read, write: if false;
+    }
+    
+    // ===== INTERVIEW SCHEDULES =====
+    match /interview_schedules/{scheduleId} {
+      // Admins can read/write
+      // Applicants can read their own
+      allow read: if isAdmin() || 
+                     (isApplicant() && resource.data.applicantUid == request.auth.uid);
+      allow write: if isAdmin();
+    }
+    
+    // ===== DEMO TEACHING SCHEDULES =====
+    match /demo_schedules/{scheduleId} {
+      // Admins can read/write
+      // Applicants can read their own
+      allow read: if isAdmin() || 
+                     (isApplicant() && resource.data.applicantUid == request.auth.uid);
+      allow write: if isAdmin();
+    }
+    
+    // ===== DEFAULT: DENY ALL =====
+    // Block access to any collections not explicitly defined above
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+

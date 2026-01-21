@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .status {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .loading {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .result-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .result-item {
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Location API Test</h1>
+        <p>This page tests if the PSGC Philippine Location API is accessible from your localhost.</p>
+        
+        <div id="status" class="status loading">
+            ⏳ Click "Test API Connection" to begin testing...
+        </div>
+
+        <button id="testBtn" onclick="runTest()">Test API Connection</button>
+        <button onclick="testProvinces()">Load Provinces</button>
+        <button onclick="testCities()">Load Cities (Bulacan)</button>
+        <button onclick="testBarangays()">Load Barangays (Sta. Maria)</button>
+
+        <div id="results"></div>
+    </div>
+
+    <script type="module">
+        import { fetchProvinces, fetchCitiesByProvince, fetchBarangaysByCity } from './location-api.js';
+
+        window.runTest = async function() {
+            const statusEl = document.getElementById('status');
+            const resultsEl = document.getElementById('results');
+            const testBtn = document.getElementById('testBtn');
+            
+            testBtn.disabled = true;
+            statusEl.className = 'status loading';
+            statusEl.innerHTML = '⏳ Testing API connection...';
+            resultsEl.innerHTML = '';
+
+            try {
+                // Test 1: Fetch provinces
+                statusEl.innerHTML = '⏳ Test 1/3: Fetching provinces...';
+                const provinces = await fetchProvinces();
+                
+                if (!provinces || provinces.length === 0) {
+                    throw new Error('No provinces returned from API');
+                }
+
+                // Test 2: Fetch cities for Bulacan (code: 0314)
+                statusEl.innerHTML = `⏳ Test 2/3: Fetching cities (Found ${provinces.length} provinces)...`;
+                const bulacanCode = provinces.find(p => p.name.toLowerCase().includes('bulacan'))?.code || '0314';
+                const cities = await fetchCitiesByProvince(bulacanCode);
+                
+                if (!cities || cities.length === 0) {
+                    throw new Error('No cities returned from API');
+                }
+
+                // Test 3: Fetch barangays for Sta. Maria
+                statusEl.innerHTML = `⏳ Test 3/3: Fetching barangays (Found ${cities.length} cities)...`;
+                const staMaria = cities.find(c => c.name.toLowerCase().includes('sta. maria') || c.name.toLowerCase().includes('santa maria'));
+                
+                if (staMaria) {
+                    const barangays = await fetchBarangaysByCity(staMaria.code);
+                    
+                    statusEl.className = 'status success';
+                    statusEl.innerHTML = `
+                        ✅ <strong>SUCCESS!</strong> API is working perfectly on localhost!<br>
+                        <small>
+                            • Provinces: ${provinces.length}<br>
+                            • Cities in Bulacan: ${cities.length}<br>
+                            • Barangays in Sta. Maria: ${barangays.length}
+                        </small>
+                    `;
+                } else {
+                    statusEl.className = 'status success';
+                    statusEl.innerHTML = `
+                        ✅ <strong>SUCCESS!</strong> API is working on localhost!<br>
+                        <small>
+                            • Provinces: ${provinces.length}<br>
+                            • Cities in Bulacan: ${cities.length}
+                        </small>
+                    `;
+                }
+
+            } catch (error) {
+                statusEl.className = 'status error';
+                statusEl.innerHTML = `
+                    ❌ <strong>ERROR:</strong> API connection failed!<br>
+                    <small>${error.message}</small><br><br>
+                    <strong>Possible causes:</strong><br>
+                    • No internet connection<br>
+                    • Firewall blocking external requests<br>
+                    • PSGC API is temporarily down
+                `;
+                console.error('API Test Error:', error);
+            } finally {
+                testBtn.disabled = false;
+            }
+        };
+
+        window.testProvinces = async function() {
+            const resultsEl = document.getElementById('results');
+            resultsEl.innerHTML = '<div class="status loading">Loading provinces...</div>';
+            
+            try {
+                const provinces = await fetchProvinces();
+                resultsEl.innerHTML = `
+                    <h3>📍 Provinces (${provinces.length} total)</h3>
+                    <div class="result-box">
+                        ${provinces.slice(0, 20).map((p, i) => 
+                            `<div class="result-item">${i + 1}. ${p.name} (Code: ${p.code})</div>`
+                        ).join('')}
+                        ${provinces.length > 20 ? '<div class="result-item"><em>... and ' + (provinces.length - 20) + ' more</em></div>' : ''}
+                    </div>
+                `;
+            } catch (error) {
+                resultsEl.innerHTML = `<div class="status error">Failed to load provinces: ${error.message}</div>`;
+            }
+        };
+
+        window.testCities = async function() {
+            const resultsEl = document.getElementById('results');
+            resultsEl.innerHTML = '<div class="status loading">Loading cities in Bulacan...</div>';
+            
+            try {
+                const provinces = await fetchProvinces();
+                const bulacan = provinces.find(p => p.name.toLowerCase().includes('bulacan'));
+                
+                if (!bulacan) {
+                    resultsEl.innerHTML = '<div class="status error">Bulacan province not found</div>';
+                    return;
+                }
+
+                const cities = await fetchCitiesByProvince(bulacan.code);
+                resultsEl.innerHTML = `
+                    <h3>🏙️ Cities/Municipalities in ${bulacan.name} (${cities.length} total)</h3>
+                    <div class="result-box">
+                        ${cities.map((c, i) => 
+                            `<div class="result-item">${i + 1}. ${c.name} (Code: ${c.code})</div>`
+                        ).join('')}
+                    </div>
+                `;
+            } catch (error) {
+                resultsEl.innerHTML = `<div class="status error">Failed to load cities: ${error.message}</div>`;
+            }
+        };
+
+        window.testBarangays = async function() {
+            const resultsEl = document.getElementById('results');
+            resultsEl.innerHTML = '<div class="status loading">Loading barangays in Sta. Maria...</div>';
+            
+            try {
+                const provinces = await fetchProvinces();
+                const bulacan = provinces.find(p => p.name.toLowerCase().includes('bulacan'));
+                const cities = await fetchCitiesByProvince(bulacan.code);
+                const staMaria = cities.find(c => c.name.toLowerCase().includes('sta. maria') || c.name.toLowerCase().includes('santa maria'));
+                
+                if (!staMaria) {
+                    resultsEl.innerHTML = '<div class="status error">Sta. Maria not found</div>';
+                    return;
+                }
+
+                const barangays = await fetchBarangaysByCity(staMaria.code);
+                resultsEl.innerHTML = `
+                    <h3>🏘️ Barangays in ${staMaria.name} (${barangays.length} total)</h3>
+                    <div class="result-box">
+                        ${barangays.map((b, i) => 
+                            `<div class="result-item">${i + 1}. ${b.name} (Code: ${b.code})</div>`
+                        ).join('')}
+                    </div>
+                `;
+            } catch (error) {
+                resultsEl.innerHTML = `<div class="status error">Failed to load barangays: ${error.message}</div>`;
+            }
+        };
+    </script>
+</body>
+</html>
+

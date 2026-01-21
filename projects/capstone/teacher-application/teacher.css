@@ -1,0 +1,412 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    line-height: 1;
+}
+
+/* Header */
+  header{
+    width: 100%;
+    background:  #1f6e15;
+    position: fixed;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+body {
+    background-color: #f5f5f5;
+
+  }
+.logo img{
+    width: 80px;
+    padding: 10px 10px;
+}
+.logo{
+  display: flex;
+  align-items: center;
+}
+ul{
+  list-style: none;
+}
+.navbar .schoolname{
+  font-size: larger;
+}
+
+header .navbar {
+    color: #e7e7e7;
+    align-items: center;
+    display: flex;
+    padding: 5px 15px;
+}
+header .schoolname {
+    font-size: 1.5rem;
+    margin-left: 10px;
+    position: relative;
+    padding-left: 40px;
+}
+/* Navbar icons */
+.nav-icons {
+  margin-left: auto;
+  display: flex;
+  gap: 15px;
+  padding-right: 20px;
+}
+
+.nav-icon {
+  color: #e7e7e7;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  padding: 8px;
+}
+
+.nav-icon:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+/* Sidebar Toggle Button */
+#open-sidebar {
+    background: none;
+    border: none;
+    color: #e7e7e7;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 10px;
+    transition: all 0.2s ease;
+}
+
+#open-sidebar:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Navigation Icons */
+.nav-icons {
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
+}
+
+.nav-icon {
+    color: #e7e7e7;
+    font-size: 1.1rem;
+    padding: 8px;
+    transition: all 0.2s ease;
+}
+
+.nav-icon:hover {
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #1f6e15;
+    color: white;
+    position: fixed;
+    left: -250px;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    z-index: 1100;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.show {
+    left: 0;
+}
+
+#close-sidebar {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* User Info */
+.user-info {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 80px;
+}
+
+.user-info .avatar {
+    font-size: 2.5rem;
+    color: #e7e7e7;
+    margin-bottom: 8px;
+}
+
+.user-info .stdname {
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.user-info .std-id {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.sidebar-links {
+    list-style: none;
+}
+
+.sidebar-links li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    color: #e7e7e7;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    transition: all 0.2s ease;
+}
+
+.sidebar-links li a i {
+    width: 22px;
+    text-align: center;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.sidebar-links li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.secondary-sidebar,
+.profile-links {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 0;
+    margin: 8px 0;
+}
+
+.logout-link a {
+    color: #ff8a8a !important;
+}
+
+.logout-link a:hover {
+    color: #ff6b6b !important;
+}
+.applicant-content{
+    
+  background: #f5f7fa;
+  min-height: 100vh;
+
+}
+/* Main Content */
+.main-content {
+    padding: 80px 15px 30px;
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+}
+
+body.sidebar-permanent .main-content {
+    margin-left: 250px;
+}
+
+
+
+/* responsive */
+@media (max-width:900px){
+    .overview-cards{
+        flex-direction:column}
+}
+
+
+@media (max-width: 768px) {
+    /* Tablet portrait */
+
+    header .navbar {
+        padding: 5px 10px;
+    }
+    header .schoolname {
+        font-size: 1rem;
+        padding-left: 10px;
+        margin-left: 5px;
+    }
+    .logo img {
+        width: 70px;
+        padding: 5px;
+    }
+    #open-sidebar {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+    .nav-icons {
+        gap: 10px;
+        padding-right: 10px;
+    }
+    .user-info {
+        padding: 15px;
+    }
+    .user-info .avatar {
+        font-size: 2.2rem;
+    }
+    .sidebar-links li a {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    .main-content {
+        padding: 70px 15px 25px;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .schoolname {
+     padding: 10px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Mobile landscape */
+
+    .logo img {
+        width: 60px;
+    }
+
+    .nav-icon {
+        font-size: 1rem;
+    }
+    .sidebar {
+        width: 40%;
+        left: -85%;
+    }
+    .user-info .stdname {
+        font-size: 0.95rem;
+    }
+    .main-content {
+        padding: 65px 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile portrait */
+
+    .logo img {
+        width: 50px;
+    }
+
+    #open-sidebar {
+        font-size: 1.1rem;
+        margin-right: 5px;
+    }
+    .nav-icons {
+        gap: 8px;
+    }
+    .sidebar {
+        width: 40%;
+        left: -100%;
+    }
+    .sidebar-links li a {
+        padding: 12px 15px;
+    }
+    .timeline-item h3 {
+        font-size: 1rem;
+    }
+    .timeline-item p {
+        font-size: 0.8rem;
+    }
+    
+}
+
+@media (max-width: 360px) {
+    /* Small mobile devices */
+
+    .logo {
+        margin-right: auto;
+    }
+    
+    .nav-icons {
+        gap: 6px;
+    }
+    .nav-icon {
+        padding: 4px;
+    }
+    .main-content {
+        padding: 60px 10px 15px;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sidebar{
+        width: 50%;
+        left: -30%;
+    }
+    .navbar .schoolname {
+     padding: 10px 10px;
+    }
+}
+
+
+
+/* Print Styles */
+@media print {
+    header, .sidebar {
+        display: none;
+    }
+    .main-content {
+        padding: 20px;
+        margin-left: 0;
+    }
+}
+
+/* Orientation-specific adjustments */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    header {
+        height: 55px;
+    }
+    .user-info {
+        padding: 10px;
+    }
+    .sidebar-links li a {
+        padding: 8px 10px;
+    }
+}
+
+/* High-density displays */
+@media 
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi) {
+    /* Sharper rendering for high-res screens */
+    .logo img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+

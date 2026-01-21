@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AlpHFAbet Admin Verification</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="verify-otp.css">
+
+
+    </head>
+
+    <body>
+            <header class="header">
+            <div class="header-container">
+                <a href="#" class="logo">
+                    <img src="../assets/transparent_logo.png" alt="HFA Logo">
+                    <h3 class="schoolname">Holy Family Academy of Sta Maria Bulacan Inc.</h3>
+                </a>
+            </div>
+        </header>
+        <main class="main-content">
+        <div class="container">
+            <div class="verification-header">
+                <h1>Email Verification</h1>
+                <p>We sent a 6-digit code to <strong><span id="verify-email"></span></strong></p>>
+                <span class="resend-otp">Didn't receive the code? <a href="#" class="resend-link">Resend OTP</a></span>
+                <span id="countdown" class="countdown-timer">You can resend the code in 120 seconds</span>
+                
+            </div>
+            <form id="otp-form" class="otp-form">
+                <label for="otp">Enter code here:</label>
+                <input type="text" id="otp" inputmode="numeric" maxlength="6" placeholder="Enter 6-digit code" required>
+                <div id="otp-error" class="error"></div>
+                <button type="submit" id="verify-btn" class="verify-btn">Verify</button>
+            </form>
+        </div>
+        </main>
+    </body>
+    <script type="module" src="/login/verify-otp.js"></script>
+
+</html>

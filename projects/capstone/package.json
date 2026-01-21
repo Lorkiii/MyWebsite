@@ -1,0 +1,45 @@
+{
+  "name": "capstone",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "start": "node server/server.mjs",
+    "test:rules": "firebase emulators:exec --only firestore 'jest firestore.rules.test.js'",
+    "test:rules-watch": "firebase emulators:exec --only firestore 'jest firestore.rules.test.js --watch'",
+    "emulator": "firebase emulators:start --only firestore",
+    "deploy:rules": "firebase deploy --only firestore:rules",
+    "validate:rules": "firebase firestore:rules:check"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.4",
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "firebase": "^12.0.0",
+    "firebase-admin": "^13.4.0",
+    "firebase-functions": "^6.4.0",
+    "fullcalendar": "^6.1.19",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "node-cron": "^4.2.1",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^7.0.5",
+    "pdfjs-dist": "^5.4.54",
+    "resend": "^6.2.2",
+    "sharp": "^0.34.4",
+    "tesseract.js": "^6.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "eslint": "^9.31.0",
+    "globals": "^16.3.0"
+  },
+  "keywords": [],
+  "type": "module"
+}

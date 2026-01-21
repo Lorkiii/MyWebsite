@@ -1,0 +1,253 @@
+/* progress-modal.css — HFA namespaced styles */
+
+/* overlay */
+#hfa-progress-modal.hfa-progress-modal {
+  position: fixed !important;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 12, 15, 0.45);
+  z-index: 1400; /* high to beat other UI */
+  padding: 20px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* card */
+#hfa-progress-modal .hfa-progress-content {
+  width: 820px;
+  justify-content: center;
+  max-width: calc(100% - 40px);
+  max-height: calc(100vh - 64px);
+  overflow: auto;
+  padding: 18px 20px;
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(6, 10, 20, 0.35);
+  background: #ffffff;
+  position: relative;
+  margin: 0; /* ensure centered */
+}
+
+/* close button */
+#hfa-progress-modal .hfa-progress-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  border: 0;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+  line-height: 1;
+}
+
+
+.hfa-progress-content #hfa-progress-header h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #0b2a3a;
+}
+#hfa-progress-header .progress-muted {
+  margin-bottom: 5px;
+}
+/* applicant info row */
+.hfa-progress-content #hfa-progress-applicant-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eff2f5;
+  padding-bottom: 20px;
+  margin-bottom: 12px;
+}
+.hfa-progress-content #hfa-progress-applicant-info .info-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hfa-progress-content .hfa-progress-applicant-info .info-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* small open-interview button */
+#hfa-progress-modal #hfa-progress-open-interview-btn {
+  display: inline-block;
+  padding: 10px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: white;
+  background-color: forestgreen;
+}
+
+/* steps */
+#hfa-progress-modal .hfa-progress-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0 18px 0;
+  max-height: 340px;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+/* step item */
+#hfa-progress-modal .hfa-progress-step-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #f0f4f6;
+  background: #fbfdff;
+}
+#hfa-progress-modal .hfa-progress-step-item[data-completed="true"] {
+  border-color: rgba(16, 185, 129, 0.12);
+  background: linear-gradient(180deg, rgba(245, 255, 249, 1), #fff);
+}
+#hfa-progress-modal .hfa-progress-step-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+#hfa-progress-modal .hfa-progress-step-item label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #0f172a;
+}
+#hfa-progress-modal .hfa-progress-step-desc {
+  margin-left: 26px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+/* interview panel */
+#hfa-progress-modal .hfa-progress-interview-panel {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fafafa;
+  border: 1px solid #f1f5f9;
+}
+#hfa-progress-modal .hfa-progress-interview-info .hfa-no-interview {
+  color: #6b7280;
+}
+
+/* demo teaching panel */
+#hfa-progress-modal .hfa-progress-demo-panel {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fafafa;
+  border: 1px solid #f1f5f9;
+}
+#hfa-progress-modal .hfa-progress-demo-info .hfa-no-demo {
+  color: #6b7280;
+  text-align: center;
+}
+#hfa-progress-modal .hfa-progress-demo-info .hfa-no-demo button {
+  margin-top: 10px;
+}
+#hfa-progress-modal .hfa-demo-details {
+  padding: 10px;
+  background: white;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+#hfa-progress-modal .hfa-demo-details > div {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+#hfa-progress-modal .hfa-demo-details strong {
+  color: #475569;
+  display: inline-block;
+  width: 80px;
+}
+.hfa-progress-demo-scheduled .hfa-demo-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.hfa-progress-demo-scheduled .hfa-demo-actions .btn {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+
+/* notes */
+#hfa-progress-modal textarea#hfa-progress-notes {
+  width: 100%;
+  border: 1px solid #e6eef3;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 0.95rem;
+  min-height: 62px;
+  resize: vertical;
+  color: #0f172a;
+  margin-top: 8px;
+}
+
+/* actions */
+#hfa-progress-modal .hfa-progress-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+.hfa-interview-scheduled .hfa-interview-actions {
+  margin-top: 10px;
+  display:flex;
+  gap:8px;
+  justify-content:flex-end;
+}
+.hfa-interview-scheduled .hfa-interview-actions .btn {
+  padding:6px 10px;
+  font-size:0.9rem;
+}
+/* small helper button in applicant card (matching your request) */
+.btn-hfa-progress {
+  background: #0b74e6;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  border: 0;
+  font-weight: 600;
+}
+.btn-hfa-progress i {
+  margin-right: 6px;
+}
+/* Approve/Reject inside final decision step */
+/* Decision action buttons container */
+.hfa-progress-decision .decision-actions {
+  display:flex;
+  gap:8px;
+  justify-content:flex-end;
+  margin-top:8px;
+}
+.hfa-progress-decision .decision-actions .btn {
+  padding:8px 12px;
+  font-weight:600;
+}
+/* Decision action buttons container */
+.hfa-progress-decision .decision-actions {
+  display:flex;
+  gap:8px;
+  justify-content:flex-end;
+  margin-top:8px;
+}
+.hfa-progress-decision .decision-actions .btn {
+  padding:8px 12px;
+  font-weight:600;
+}
+/* responsive tweaks */
+@media (max-width: 900px) {
+  #hfa-progress-modal .hfa-progress-content {
+    width: calc(100% - 24px);
+    max-height: calc(100vh - 32px);
+  }
+  #hfa-progress-modal .hfa-progress-steps {
+    max-height: 260px;
+  }
+}

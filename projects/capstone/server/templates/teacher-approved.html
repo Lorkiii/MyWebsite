@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Approved</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #2e8b57;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin: -30px -30px 30px -30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .success-icon {
+            font-size: 48px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        .info-box {
+            background-color: #f0f8f4;
+            border-left: 4px solid #2e8b57;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #2e8b57;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 Congratulations!</h1>
+        </div>
+        
+        <div class="success-icon">✅</div>
+        
+        <div class="content">
+            <p>Dear <strong>{{name}}</strong>,</p>
+            
+            <p>We are pleased to inform you that you have <strong>successfully passed</strong> our teacher evaluation process at Holy Family Academy of Sta Maria Bulacan Inc.</p>
+            
+            <div class="info-box">
+                <h3>Next Steps - Office Visit Required</h3>
+                
+            </div>
+            
+            <div class="info-box">
+                <h3>📍 Office Information</h3>
+                <p>
+                    <strong>Office Hours:</strong> Monday - Friday, 8:00 AM - 5:00 PM<br>
+                    <strong>Location:</strong> Holy Family Academy, Sta Maria, Bulacan<br>
+                    <strong>Contact:</strong> {{contactPhone}} | {{contactEmail}}
+                </p>
+            </div>
+            
+            <div class="warning">
+                <strong>⚠️ Important Notice:</strong> Your account will be automatically removed after 30 days. Please complete your onboarding requirements as soon as possible.
+            </div>
+            
+            <p>We look forward to welcoming you to our teaching faculty!</p>
+            
+            <p>
+                Best regards,<br>
+                <strong>Holy Family Academy</strong><br>
+                Admissions Office
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>This is an automated email. Please do not reply to this message.</p>
+            <p>&copy; 2025 Holy Family Academy of Sta Maria Bulacan Inc. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

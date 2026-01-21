@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlpHFAbet Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="login.css" />
+  
+
+  </head>
+
+  <body>
+    <!-- back to dashboard button -->
+    <a href="../landing/main.html" class="dashboard-btn">
+      <i class="fas fa-arrow-left"></i> Return to Dashboard
+    </a>
+    <a href="#" class="logo">
+      <img href="#" src="../assets/transparent_logo.png" alt="school_logo">
+    </a>
+
+    <div class="container">
+      <!-- admin login -->
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="#" class="sign-in-form">
+            <h1>Welcome Familians</h1>
+            <h2 class="title">Login as Admin</h2>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="admin-email" placeholder="Email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="admin-password" placeholder="Password" />
+            </div>
+         <button type="submit" class="sign-in admin">Login as Admin</button>
+            <!-- Switch to Applicant (moved from left panel) -->
+            <button type="button" class="btn transparent switch-btn" id="sign-up-btn">
+              Login as Applicant
+            </button>
+
+          </form>
+
+          <!-- applicant login -->
+          <form action="#" class="sign-in-applicant">
+            <h2 class="title">Login as Applicant</h2>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="applicant-email" placeholder="Email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="applicant-password" placeholder="Password" />
+            </div>
+            <button type="submit" class="sign-in applicant">Login as Applicant</button>
+            <!-- Switch to Admin (moved from right panel) -->
+            <button type="button" class="btn transparent switch-btn" id="sign-in-btn">
+              Login as Admin
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3> Login as Teacher's Applicant</h3>
+          </div>
+          <img src="../assets/tc-signin.svg" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Login as Admin</h3>
+          </div>
+          <img src="../assets/sign-in.svg" class="image" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div id="login-toast-container" aria-live="polite"></div>
+
+            <!-- Toast template -->
+            <template id="toast-template">
+                <div class="login-toast">
+                    <div class="toast-message" aria-atomic="true"></div>
+                    <button type="button" class="toast-action"></button>
+                </div>
+            </template>
+
+    <script type="module" src="login.js"></script>
+  </body>
+
+</html>

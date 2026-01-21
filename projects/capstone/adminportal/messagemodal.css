@@ -1,0 +1,180 @@
+/* ===== HFA namespaced Message Modal ===== */
+.hfa-msg-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center; /* center vertically */
+  justify-content: center; /* center horizontally */
+  padding: 36px 20px;
+  background: rgba(0, 0, 0, 0.44);
+  z-index: 1200;
+  overflow-y: auto;
+}
+
+/* nudge the dialog slightly upward (a little high) */
+.hfa-msg-modal {
+  width: min(980px, 95%);
+  max-width: 980px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+  position: relative;
+  max-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  transform:none;
+  margin-top: 6vh;
+}
+
+/* Close X */
+.hfa-msg-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #444;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+}
+.hfa-msg-close:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Header */
+.hfa-msg-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eef0f2;
+  background: #fbfefb;
+}
+.hfa-msg-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2b5530;
+}
+.hfa-msg-sub {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* header actions */
+.hfa-msg-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.hfa-msg-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #d6d9dc;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+.hfa-msg-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.hfa-msg-btn.small {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+}
+.hfa-msg-btn-primary {
+  background: #267826;
+  color: #fff;
+  border-color: #226b21;
+}
+
+/* Body */
+.hfa-msg-body {
+  padding: 16px 20px;
+  overflow: auto;
+}
+.hfa-msg-grid {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 12px 18px;
+  align-items: start;
+}
+.hfa-msg-grid .full {
+  grid-column: 1 / -1;
+}
+
+/* rows */
+.hfa-msg-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hfa-msg-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+.hfa-msg-input,
+.hfa-msg-textarea {
+  border: 1px solid #e4e7e9;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.hfa-msg-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.hfa-msg-info {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fcfcfc;
+  border: 1px solid #f1f1f1;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+.hfa-msg-error {
+  color: #b00020;
+  min-height: 1.2em;
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.hfa-msg-footer {
+  padding: 10px 16px;
+  border-top: 1px solid #eef0f2;
+  background: #fff;
+  flex: 0 0 auto;
+}
+.hfa-msg-tip {
+  color: #666;
+}
+
+/* responsive */
+@media (max-width: 760px) {
+  .hfa-msg-grid {
+    grid-template-columns: 1fr;
+  }
+  .hfa-msg-modal {
+    width: 96%;
+    max-width: none;
+    transform: translateY(-4%);
+  }
+}

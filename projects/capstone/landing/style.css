@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+ 
+  html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* for navigation design */
+  header{
+      width: 100%;
+      background:  #1f6e15;
+      position: fixed;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+  }
+
+  *{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+  }
+ 
+  .logo img{
+      width: 110px;
+      padding: 5px 20px;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+  }
+  ul{
+    list-style: none;
+  }
+  .navbar .schoolname{
+    font-size: larger;
+  }
+
+  /* hiding menu-close and open button in the web view */
+  .navbar :where(#menu-close-button, #menu-open-button){
+    display: none;
+    }
+  header .navbar {
+      color: white;
+      align-items: center;
+      justify-content: space-between;
+      display: flex;
+      padding: 10px 20px;
+  }
+
+  /* Navlink icon and text alignment - Desktop */
+  .navbar ul li a {
+      color: white;
+      padding: 10px 12px;
+      font-size: 18px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+  }
+  
+  .navbar ul li a i {
+      font-size: 16px;
+      width: 18px;
+      text-align: center;
+  }
+  
+  .navbar ul li a span {
+      white-space: nowrap;
+  }
+  
+  .navbar .nav_link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 0;
+  }
+  
+  .navbar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
+  #loginbtn {
+    background-color: #ffffff;
+    color: #1f6e15;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    padding: 10px 24px;
+    margin-left: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+  #loginbtn:hover {
+    background-color: #f0f0f0;
+    color: #1f6e15;
+    border-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Overlay for mobile menu */
+  .menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  body.show-menu .menu-overlay {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Tablet adjustments */
+  @media screen and (max-width: 1100px) {
+    /* Constrain long school name and compact links for medium screens */
+    .navbar .schoolname {
+      font-size: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 320px;
+    }
+    .navbar .nav_link {
+      gap: 2px;
+    }
+    .navbar ul li a {
+      padding: 8px 10px;
+      font-size: 16px;
+    }
+    #loginbtn {
+      padding: 8px 18px;
+      margin-left: 6px;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .navbar .schoolname {
+      font-size: 0.95rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 250px;
+    }
+  }
+
+  /* Mobile responsive layout */
+  @media screen and (max-width: 800px) {
+    /* Hide school name on mobile */
+    .navbar .schoolname {
+      display: none;
+    }
+
+    /* Mobile menu sidebar */
+    .navbar .nav_link {
+      position: fixed;
+      right: -280px;
+      top: 0;
+      width: 280px;
+      height: 100vh;
+      background: #1f6e15;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 70px 20px 30px 20px;
+      transition: right 0.3s ease;
+      z-index: 1001;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+      overflow-y: auto;
+    }
+
+    body.show-menu .navbar .nav_link {
+      right: 0;
+    }
+
+    /* Navlink styling - Mobile */
+    .navbar .nav_link li {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+
+    .navbar .nav_link li a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      padding: 14px 16px;
+      width: 100%;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      margin-top: 0;
+    }
+
+    .navbar .nav_link li a i {
+      font-size: 18px;
+      width: 24px;
+      text-align: center;
+    }
+
+    /* Mobile hover effect */
+    .navbar .nav_link li a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      transform: translateX(5px);
+    }
+
+    /* Login button - Mobile */
+    #loginbtn {
+      margin: 15px 0 0 0;
+      width: 100%;
+      text-align: center;
+      padding: 12px 20px;
+    }
+
+    /* Hamburger menu button */
+    .navbar :where(#menu-close-button, #menu-open-button) {
+      display: flex;
+      font-size: 1.4rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ffffff;
+      padding: 8px;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 1002;
+    }
+
+    .navbar :where(#menu-close-button, #menu-open-button):hover {
+      color: #e7e7e7;
+      transform: scale(1.1);
+    }
+
+    #menu-open-button {
+      margin-left: auto;
+    }
+
+    /* Close button styling */
+    .navbar #menu-close-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+
+    .navbar #menu-close-button:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    /* Prevent body scroll when menu is open */
+    body.show-menu {
+      overflow: hidden;
+    }
+  }
+
+  /* Extra small screens */
+  @media screen and (max-width: 480px) {
+    .navbar .nav_link {
+      width: 260px;
+      right: -260px;
+    }
+
+    .navbar .nav_link li a {
+      font-size: 0.95rem;
+      padding: 12px 14px;
+    }
+  }
+
+  /* footer design */
+  footer {
+    width: 100%; /* CRITICAL: Ensure footer spans full width */
+    background:  #1f6e15;
+    color: white;
+    padding: 40px 20px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  /* design for footer container  */
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  /* for footer logo */
+  .footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-logo img {
+    width: 120px;
+    margin-bottom: 15px;
+  }
+  /* footer logo text */
+  .footer-logo p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  /* text */
+  .footer-links h3, 
+  .footer-contact h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+  }
+
+  .footer-links h3:after,
+  .footer-contact h3:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #4dc416c3;
+  }
+  .footer-contact .map-link a{
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .footer-contact .map-link a:hover {
+    color: #87ef57c3;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+ 
+  .footer-links ul {
+    list-style: none;
+  } 
+
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    color: #4dc416c3;
+    padding-left: 5px;
+  }
+
+  .footer-contact p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .footer-contact i {
+    margin-right: 10px;
+    color: #4dc416c3;
+  }
+
+  .copyright {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+  }
+  /* responsive footer */
+  /* Fix footer gap in medium screens */
+  @media (min-width: 850px) and (max-width: 1100px) {
+    .footer-container {
+        max-width: 100%; /* Use full width */
+        padding: 0 15px; /* Match section padding */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-logo {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-links,
+    .footer-contact
+    {
+        text-align: center;
+    }
+    
+    .footer-links h3:after,
+    .footer-contact h3 {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+  }
+
+
+
