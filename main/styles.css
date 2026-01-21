@@ -26,8 +26,8 @@ body {
 }
 
 .logo {
-  font-family: var(--text-style-accent);
-  font-size: 54px;
+  font-family: 'Bevan', cursive;
+  font-size: 32px;
   color: var(--accent-color);
   text-decoration: none;
 }
