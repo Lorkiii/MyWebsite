@@ -106,10 +106,56 @@ function setupContactForm() {
   }
 }
 
+// Smooth scroll with active state management
+function initializeSmoothScroll() {
+  const navLinks = document.querySelectorAll('.navLinks a');
+  const sections = document.querySelectorAll('section');
+  
+  // Function to update active navigation link
+  function updateActiveLink() {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop - 100) {
+        current = section.getAttribute('id');
+      }
+    });
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  // Smooth scroll for navigation links
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  // Update active link on scroll
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink(); // Set initial active state
+}
+
 // Start initialization when page loads
 window.addEventListener('load', function() {
 
   initializeEmailJS();
+  initializeSmoothScroll();
  
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');

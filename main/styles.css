@@ -17,12 +17,14 @@
 }
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 body {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
   margin: 0;
   padding: 0;
+  scroll-snap-type: y mandatory;
 }
 
 .logo {
@@ -104,6 +106,10 @@ header {
 .navLinks a:hover::after {
   width: 100%;
 }
+.navLinks a.active {
+  color: var(--accent-color);
+  font-weight: 600;
+}
 .navLinks ul,
 .navLinks li {
   list-style: none;
@@ -117,7 +123,7 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 15px;
+
 }
 h2 {
   font-family: "Poppins", sans-serif;
@@ -137,15 +143,27 @@ p {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
+/* Full-screen scroll-snap behavior for sections */
+section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* About Me Section */
 .aboutMe {
   padding: 40px 60px;
-  margin: 60px auto;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 80px;
   max-width: 1400px;
-  min-height: auto;
+  min-height: 100vh;
+  justify-content: center;
+  flex-direction: row;
 }
 .aboutPic {
   width: 600px;
@@ -257,6 +275,9 @@ p {
 .projects {
   padding: 60px 40px;
   background-color: var(--secondary-bg-color);
+  min-height: 100vh;
+  justify-content: flex-start;
+  padding-top: 80px;
 }
 
 .sectionTitle {
@@ -388,6 +409,9 @@ p {
 .education {
   padding: 60px 40px;
   background-color: var(--main-bg-color);
+  min-height: 100vh;
+  justify-content: flex-start;
+  padding-top: 80px;
 }
 
 .educationList {
@@ -681,6 +705,9 @@ p {
 .experience {
   padding: 60px 40px;
   background-color: var(--secondary-bg-color);
+  min-height: 100vh;
+  justify-content: flex-start;
+  padding-top: 120px;
 }
 
 .experienceList {
@@ -766,6 +793,9 @@ p {
 .skills {
   padding: 60px 40px;
   background-color: var(--main-bg-color);
+  min-height: 100vh;
+  justify-content: flex-start;
+  padding-top: 80px;
 }
 
 .skillsList {
@@ -851,6 +881,9 @@ p {
 .contact {
   padding: 60px 40px;
   background-color: var(--secondary-bg-color);
+  min-height: 100vh;
+  justify-content: flex-start;
+  padding-top: 80px;
 }
 
 .contactContainer {
