@@ -2,19 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=7" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>JR Nieto | Full-Stack Developer</title>
+    <meta name="description" content="John Raymond Nieto — Full-stack Web Developer portfolio. HTML, CSS, JavaScript, Node.js, Express.js, Firebase, MySQL, MongoDB." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- AOS (Animate on Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="./main/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
 
   <body>
-    <!-- header -->
+    <!-- Scroll Progress Bar -->
+    <div class="scrollProgress" id="scrollProgress"></div>
+
+    <!-- Header / Navigation -->
     <header id="navHeader">
-      <div class="logo" id="logoName">MyPortfolio</div>
+      <a href="#hero" class="logo">JR<span class="logoAccent">.</span></a>
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
@@ -22,264 +35,394 @@
       </div>
       <nav class="navLinks" id="navLinks">
         <ul>
-          <li><a href="#aboutMe">About Me</a></li>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#education">Education</a></li>
-          <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
-    <div class="mainContent" id="aboutMe">
-      <!-- Main content goes here -->
-      <section class="aboutMe" id="aboutMe">
-        <img src="./assets/pfp1.JPG" alt="pfp1" class="aboutPic" />
-        <div class="aboutText" id="aboutText">
-          <h1 class="welcomeText">Hi! I'm John Raymond Nieto</h1>
-          <p class="introText">
-            Full-stack Web Developer | Turning ideas into elegant digital
-            solutions. Currently seeking internship/OJT opportunities where I
-            can apply my skills and grow as a professional. Let's collaborate
-            and create something amazing together!
-          </p>
-          <!-- buttons in about section -->
-          <div class="aboutActions">
-            <a class="btn contactMe" href="#contact">Contact Me</a>
-            <a
-              class="btn btnSecondary resumePreview"
-              href="./assets/jnietoResume.pdf"
-              target="_blank"
-              rel="noopener">
-              Resume
-            </a>
-          </div>
-        </div>
-      </section>
-      <!-- Education Section -->
-      <section class="education" id="education">
-        <h2 class="sectionTitle">Education</h2>
-        <div class="educationList">
-          <div class="educationCard">
-            <div class="educationHeader">
-              <h3 class="schoolName">STI COLLEGE SANTA MARIA</h3>
-              <span class="educationBadge">Current</span>
-            </div>
-            <p class="educationDegree">
-              Bachelor of Science in Information Technology
-            </p>
-            <p class="educationDate">September 2022 – Present</p>
-          </div>
 
-          <div class="educationCard">
-            <div class="educationHeader">
-              <h3 class="schoolName">GRACE OF SHEKINAH SCHOOL</h3>
-            </div>
-            <p class="educationDegree">Senior High School – STEM Strand</p>
-            <p class="educationDate">August 2020 – April 2022</p>
-          </div>
-          <div class="educationCard">
-            <div class="educationHeader">
-              <h3 class="schoolName">GRACE OF SHEKINAH SCHOOL</h3>
-            </div>
-            <p class="educationDegree">Junior High School</p>
-            <p class="educationDate">June 2016 – April 2020</p>
-          </div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="hero">
+      <div class="heroBackground">
+        <div class="heroBlobOne"></div>
+        <div class="heroBlobTwo"></div>
+        <div class="heroGrid"></div>
+      </div>
+      <div class="heroContent">
+        <p class="heroGreeting" data-aos="fade-down" data-aos-delay="100">Hello, I'm</p>
+        <h1 class="heroName" data-aos="fade-up" data-aos-delay="200">John Raymond<br/><span class="heroNameAccent">Nieto</span></h1>
+        <div class="heroTypingWrapper" data-aos="fade-up" data-aos-delay="300">
+          <span class="heroTypingPrefix">I'm a&nbsp;</span>
+          <span class="heroTypingText" id="typingText"></span>
+          <span class="heroTypingCursor">|</span>
         </div>
-      </section>
-
-      <!-- Projects Section -->
-      <section class="projects" id="projects">
-        <h2 class="sectionTitle">Projects</h2>
-        <div class="projectList">
-          <!-- Project items will go here -->
-          <div class="projectCard">
-            <h2 class="projectTitle">AlpHFAbet - Capstone Project</h2>
-            <ul class="projectPreview">
-              <li>
-                A web-based school portal for Holy Family Academy of Santa Maria
-                Bulacan Inc. that integrates essential modules including
-                Administrative Functions, Pre-Enrollment, Document Upload and
-                Verification, Hiring and Application Process, and Application
-                Status Tracking.
-              </li>
-              <li>
-                Developed using HTML, CSS, and JavaScript for the front-end,
-                with Node.js and Express.js for the back-end, and Firebase for
-                database management and storage.
-              </li>
-            </ul>
-            <img
-              src="./assets/project1.png"
-              alt="project1"
-              class="projectPic" />
-
-            <div class="footerCard" id="footerCard">
-              <a
-                href="./projects/capstone/landing/main.html"
-                class="projectLink"
-                target="_blank"
-                rel="noopener">
-                View Project
-              </a>
-            </div>
-          </div>
+        <p class="heroDescription" data-aos="fade-up" data-aos-delay="400">
+          Turning ideas into elegant digital solutions. Currently seeking
+          internship/OJT opportunities where I can apply my skills and grow
+          as a professional.
+        </p>
+        <div class="heroActions" data-aos="fade-up" data-aos-delay="500">
+          <a class="btn btnPrimary" href="#contact">
+            <i class="fas fa-paper-plane"></i> Contact Me
+          </a>
+          <a class="btn btnOutline" href="./assets/jnietoResume.pdf" target="_blank" rel="noopener">
+            <i class="fas fa-file-alt"></i> Resume
+          </a>
         </div>
-      </section>
-
-      <!-- Experience Section -->
-      <section class="experience" id="experience">
-        <h2 class="sectionTitle">Experience</h2>
-        <div class="experienceList">
-          <div class="experienceCard">
-            <div class="experienceHeader">
-              <div class="experienceCompany">
-                <h3 class="companyName">Public Employment Service Office</h3>
-                <p class="jobTitle">Data Encoder</p>
-                <p class="jobLocation">Santa Maria, Bulacan</p>
-              </div>
-              <span class="experienceDateBadge">June 2025 – July 2025</span>
-            </div>
-            <p class="jobDescription">
-              Encoded and processed data with high accuracy. Gained experience
-              in attention to detail and organizational skills.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills Section -->
-      <section class="skills" id="skills">
-        <h2 class="sectionTitle">Skills</h2>
-        <div class="skillsList">
-          <div class="skillCard" style="border-color: #a78bfa">
-            <div class="skillIcon"><i class="fas fa-palette"></i></div>
-            <h3 class="skillName">UI/UX Design</h3>
-            <p class="skillDescription">Figma</p>
-          </div>
-          <div class="skillCard" style="border-color: #f472b6">
-            <div class="skillIcon"><i class="fas fa-code"></i></div>
-            <h3 class="skillName">Frontend</h3>
-            <p class="skillDescription">HTML, CSS, JavaScript</p>
-          </div>
-          <div class="skillCard" style="border-color: #34d399">
-            <div class="skillIcon"><i class="fas fa-cog"></i></div>
-            <h3 class="skillName">Backend</h3>
-            <p class="skillDescription">Node.js, Express.js</p>
-          </div>
-          <div class="skillCard" style="border-color: #fbbf24">
-            <div class="skillIcon"><i class="fas fa-globe"></i></div>
-            <h3 class="skillName">Web Development</h3>
-            <p class="skillDescription">Full-stack development</p>
-          </div>
-          <div class="skillCard" style="border-color: #60a5fa">
-            <div class="skillIcon"><i class="fas fa-database"></i></div>
-            <h3 class="skillName">Databases</h3>
-            <p class="skillDescription">MySQL, MongoDB, Firebase</p>
-          </div>
-          <div class="skillCard" style="border-color: #c084fc">
-            <div class="skillIcon"><i class="fas fa-code-branch"></i></div>
-            <h3 class="skillName">Version Control</h3>
-            <p class="skillDescription">GitHub</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section class="contact" id="contact">
-        <h2 class="sectionTitle">Get In Touch</h2>
-        <div class="contactContainer">
-          <div class="contactImageBox">
-            <img
-              src="./assets/formalpic.jpg"
-              alt="John Raymond Nieto"
-              class="contactPic" />
-          </div>
-          <div class="contactForm">
-            <p class="contactIntro">
-              Have a question or want to collaborate? Fill out the form below
-              and I'll get back to you as soon as possible.
-            </p>
-            <form class="emailForm">
-              <div class="formGroup">
-                <label for="name">Your Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="John Doe"
-                  required />
-              </div>
-              <div class="formGroup">
-                <label for="email">Your Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="you@example.com"
-                  required />
-              </div>
-              <div class="formGroup">
-                <label for="subject">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder="What's this about?"
-                  required />
-              </div>
-              <div class="formGroup">
-                <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="6"
-                  placeholder="Tell me more about your project or inquiry..."
-                  required></textarea>
-              </div>
-              <button type="submit" class="btn submitBtn">Send Message</button>
-            </form>
-            <p class="contactEmail">
-              Or email me directly at:
-              <span class="emailHighlight">jrxymnd18@gmail.com</span>
-            </p>
-          </div>
-        </div>
-      </section>
-      <!-- Email Status Modal -->
-      <div id="emailStatusModal" class="statusModal" aria-hidden="true">
-        <div
-          class="statusModalContent"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="emailStatusTitle">
-          <h3 id="emailStatusTitle" class="statusModalTitle">Message Status</h3>
-          <p id="emailStatusMessage" class="statusModalMessage"></p>
-          <button
-            type="button"
-            class="btn statusModalButton"
-            id="emailStatusOk">
-            Okay
-          </button>
+        <div class="heroSocials" data-aos="fade-up" data-aos-delay="600">
+          <a href="https://github.com/Lorkiii" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
         </div>
       </div>
+      <a href="#about" class="heroScrollDown" aria-label="Scroll to About">
+        <div class="scrollIndicator">
+          <div class="scrollDot"></div>
+        </div>
+        <span>Scroll Down</span>
+      </a>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="sectionTitle" data-aos="fade-up">
+          <span class="sectionNumber">01.</span> About Me
+        </h2>
+        <div class="aboutGrid">
+          <div class="aboutImageWrapper" data-aos="fade-right" data-aos-delay="100">
+            <div class="aboutImageFrame">
+              <img src="./assets/pfp1.JPG" alt="John Raymond Nieto" class="aboutPic" />
+            </div>
+            <div class="aboutImageDecor"></div>
+          </div>
+          <div class="aboutContent" data-aos="fade-left" data-aos-delay="200">
+            <h3 class="aboutSubtitle">Full-Stack Web Developer</h3>
+            <p class="aboutText">
+              I'm a BS Information Technology student at STI College Santa Maria with a
+              passion for building complete web applications from front to back. I enjoy
+              turning complex problems into clean, user-friendly interfaces.
+            </p>
+            <p class="aboutText">
+              My experience spans across modern web technologies — from crafting responsive
+              UIs with HTML, CSS, and JavaScript, to building robust APIs with Node.js and
+              Express.js, and managing data with Firebase, MySQL, and MongoDB.
+            </p>
+            <div class="aboutDetails">
+              <div class="aboutDetailItem">
+                <span class="aboutDetailIcon"><i class="fas fa-map-marker-alt"></i></span>
+                <span>Santa Maria, Bulacan</span>
+              </div>
+              <div class="aboutDetailItem">
+                <span class="aboutDetailIcon"><i class="fas fa-graduation-cap"></i></span>
+                <span>BSIT Student</span>
+              </div>
+              <div class="aboutDetailItem">
+                <span class="aboutDetailIcon"><i class="fas fa-envelope"></i></span>
+                <span>jrxymnd18@gmail.com</span>
+              </div>
+              <div class="aboutDetailItem">
+                <span class="aboutDetailIcon"><i class="fas fa-briefcase"></i></span>
+                <span>Open to Opportunities</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EDUCATION SECTION ==================== -->
+    <section class="education" id="education">
+      <div class="container">
+        <h2 class="sectionTitle" data-aos="fade-up">
+          <span class="sectionNumber">02.</span> Education
+        </h2>
+        <div class="timeline">
+          <div class="timelineItem" data-aos="fade-up" data-aos-delay="100">
+            <div class="timelineDot active"></div>
+            <div class="timelineContent">
+              <div class="timelineHeader">
+                <h3 class="timelineSchool">STI College Santa Maria</h3>
+                <span class="timelineBadge current">Current</span>
+              </div>
+              <p class="timelineDegree">Bachelor of Science in Information Technology</p>
+              <p class="timelineDate"><i class="far fa-calendar-alt"></i> September 2022 – Present</p>
+            </div>
+          </div>
+
+          <div class="timelineItem" data-aos="fade-up" data-aos-delay="200">
+            <div class="timelineDot"></div>
+            <div class="timelineContent">
+              <div class="timelineHeader">
+                <h3 class="timelineSchool">Grace of Shekinah School</h3>
+              </div>
+              <p class="timelineDegree">Senior High School – STEM Strand</p>
+              <p class="timelineDate"><i class="far fa-calendar-alt"></i> August 2020 – April 2022</p>
+            </div>
+          </div>
+
+          <div class="timelineItem" data-aos="fade-up" data-aos-delay="300">
+            <div class="timelineDot"></div>
+            <div class="timelineContent">
+              <div class="timelineHeader">
+                <h3 class="timelineSchool">Grace of Shekinah School</h3>
+              </div>
+              <p class="timelineDegree">Junior High School</p>
+              <p class="timelineDate"><i class="far fa-calendar-alt"></i> June 2016 – April 2020</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE SECTION ==================== -->
+    <section class="experience" id="experience">
+      <div class="container">
+        <h2 class="sectionTitle" data-aos="fade-up">
+          <span class="sectionNumber">03.</span> Experience
+        </h2>
+        <div class="timeline">
+          <div class="timelineItem" data-aos="fade-up" data-aos-delay="100">
+            <div class="timelineDot"></div>
+            <div class="timelineContent experienceContent">
+              <div class="timelineHeader">
+                <div>
+                  <h3 class="timelineSchool">Public Employment Service Office</h3>
+                  <p class="experienceRole">Data Encoder</p>
+                </div>
+                <span class="timelineBadge">Jun – Jul 2025</span>
+              </div>
+              <p class="experienceLocation"><i class="fas fa-map-marker-alt"></i> Santa Maria, Bulacan</p>
+              <p class="experienceDescription">
+                Encoded and processed data with high accuracy for the municipal employment office.
+                Developed strong attention to detail, organizational skills, and familiarity with
+                government data management workflows.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2 class="sectionTitle" data-aos="fade-up">
+          <span class="sectionNumber">04.</span> Projects
+        </h2>
+
+        <div class="projectList">
+          <!-- Capstone Project Card -->
+          <div class="projectCard" data-aos="fade-up" data-aos-delay="100">
+            <div class="projectImageWrapper">
+              <img src="./assets/project1.png" alt="AlpHFAbet Capstone Project" class="projectPic" />
+              <div class="projectOverlay">
+                <span class="projectOverlayLabel">Capstone Project</span>
+              </div>
+            </div>
+            <div class="projectBody">
+              <h3 class="projectTitle">AlpHFAbet</h3>
+              <p class="projectSubtitle">School Portal System</p>
+              <p class="projectDescription">
+                A web-based school portal for Holy Family Academy of Santa Maria Bulacan Inc.
+                featuring Administrative Functions, Pre-Enrollment, Document Upload &amp; Verification,
+                Hiring &amp; Application Process, and Application Status Tracking.
+              </p>
+              <div class="projectTechStack">
+                <span class="techTag">HTML</span>
+                <span class="techTag">CSS</span>
+                <span class="techTag">JavaScript</span>
+                <span class="techTag">Node.js</span>
+                <span class="techTag">Express.js</span>
+                <span class="techTag">Firebase</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coming Soon Placeholder -->
+          <div class="projectCard projectCardPlaceholder" data-aos="fade-up" data-aos-delay="200">
+            <div class="placeholderContent">
+              <i class="fas fa-rocket placeholderIcon"></i>
+              <h3 class="projectTitle">More Coming Soon</h3>
+              <p class="projectDescription">
+                Exciting new projects are in the works. Stay tuned for updates!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <h2 class="sectionTitle" data-aos="fade-up">
+          <span class="sectionNumber">05.</span> Skills
+        </h2>
+        <div class="skillsGrid">
+          <div class="skillCard" data-aos="fade-up" data-aos-delay="100">
+            <div class="skillIconWrapper" style="--skill-color: #a78bfa;">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3 class="skillName">UI/UX Design</h3>
+            <p class="skillDescription">Figma</p>
+            <div class="skillBar"><div class="skillBarFill" style="--skill-color: #a78bfa; --skill-width: 70%;"></div></div>
+          </div>
+
+          <div class="skillCard" data-aos="fade-up" data-aos-delay="150">
+            <div class="skillIconWrapper" style="--skill-color: #f472b6;">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="skillName">Frontend</h3>
+            <p class="skillDescription">HTML, CSS, JavaScript</p>
+            <div class="skillBar"><div class="skillBarFill" style="--skill-color: #f472b6; --skill-width: 85%;"></div></div>
+          </div>
+
+          <div class="skillCard" data-aos="fade-up" data-aos-delay="200">
+            <div class="skillIconWrapper" style="--skill-color: #34d399;">
+              <i class="fas fa-server"></i>
+            </div>
+            <h3 class="skillName">Backend</h3>
+            <p class="skillDescription">Node.js, Express.js</p>
+            <div class="skillBar"><div class="skillBarFill" style="--skill-color: #34d399; --skill-width: 75%;"></div></div>
+          </div>
+
+          <div class="skillCard" data-aos="fade-up" data-aos-delay="250">
+            <div class="skillIconWrapper" style="--skill-color: #fbbf24;">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <h3 class="skillName">Full-Stack</h3>
+            <p class="skillDescription">End-to-end development</p>
+            <div class="skillBar"><div class="skillBarFill" style="--skill-color: #fbbf24; --skill-width: 78%;"></div></div>
+          </div>
+
+          <div class="skillCard" data-aos="fade-up" data-aos-delay="300">
+            <div class="skillIconWrapper" style="--skill-color: #60a5fa;">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3 class="skillName">Databases</h3>
+            <p class="skillDescription">MySQL, MongoDB, Firebase</p>
+            <div class="skillBar"><div class="skillBarFill" style="--skill-color: #60a5fa; --skill-width: 72%;"></div></div>
+          </div>
+
+          <div class="skillCard" data-aos="fade-up" data-aos-delay="350">
+            <div class="skillIconWrapper" style="--skill-color: #c084fc;">
+              <i class="fab fa-git-alt"></i>
+            </div>
+            <h3 class="skillName">Version Control</h3>
+            <p class="skillDescription">Git, GitHub</p>
+            <div class="skillBar"><div class="skillBarFill" style="--skill-color: #c084fc; --skill-width: 68%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="sectionTitle" data-aos="fade-up">
+          <span class="sectionNumber">06.</span> Get In Touch
+        </h2>
+        <div class="contactGrid">
+          <div class="contactInfo" data-aos="fade-right" data-aos-delay="100">
+            <div class="contactImageBox">
+              <img src="./assets/formalpic.jpg" alt="John Raymond Nieto" class="contactPic" />
+            </div>
+            <div class="contactMethods">
+              <a href="mailto:jrxymnd18@gmail.com" class="contactMethod">
+                <div class="contactMethodIcon"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <p class="contactMethodLabel">Email</p>
+                  <p class="contactMethodValue">jrxymnd18@gmail.com</p>
+                </div>
+              </a>
+              <a href="tel:+639989207040" class="contactMethod">
+                <div class="contactMethodIcon"><i class="fas fa-phone"></i></div>
+                <div>
+                  <p class="contactMethodLabel">Phone</p>
+                  <p class="contactMethodValue">0998-920-7040</p>
+                </div>
+              </a>
+              <div class="contactMethod">
+                <div class="contactMethodIcon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                  <p class="contactMethodLabel">Location</p>
+                  <p class="contactMethodValue">Santa Maria, Bulacan</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contactFormWrapper" data-aos="fade-left" data-aos-delay="200">
+            <div class="contactGlass">
+              <h3 class="contactFormTitle">Send me a message</h3>
+              <p class="contactIntro">
+                Have a question or want to collaborate? I'd love to hear from you.
+              </p>
+              <form class="emailForm">
+                <div class="formRow">
+                  <div class="formGroup">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required />
+                  </div>
+                  <div class="formGroup">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                  </div>
+                </div>
+                <div class="formGroup">
+                  <label for="subject">Subject</label>
+                  <input type="text" id="subject" name="subject" placeholder="What's this about?" required />
+                </div>
+                <div class="formGroup">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="5" placeholder="Tell me more..." required></textarea>
+                </div>
+                <button type="submit" class="btn btnPrimary submitBtn">
+                  <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Email Status Modal -->
+    <div id="emailStatusModal" class="statusModal" aria-hidden="true">
+      <div class="statusModalContent" role="dialog" aria-modal="true" aria-labelledby="emailStatusTitle">
+        <div class="statusModalIcon" id="statusModalIcon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h3 id="emailStatusTitle" class="statusModalTitle">Message Status</h3>
+        <p id="emailStatusMessage" class="statusModalMessage"></p>
+        <button type="button" class="btn btnPrimary statusModalButton" id="emailStatusOk">
+          Okay
+        </button>
+      </div>
     </div>
-    <!-- Footer Section -->
+
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
-      <div class="footerContainer">
+      <div class="container">
         <div class="footerContent">
           <div class="footerBrand">
-            <h3 class="footerLogo">MyPortfolio</h3>
+            <a href="#hero" class="footerLogo">JR<span class="logoAccent">.</span></a>
             <p class="footerDescription">
-              Full-stack web developer passionate about creating digital
-              experiences.
+              Full-stack web developer passionate about creating elegant digital experiences.
             </p>
           </div>
 
           <div class="footerLinks">
             <h4 class="footerTitle">Quick Links</h4>
             <ul>
-              <li><a href="#aboutMe">About Me</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#education">Education</a></li>
               <li><a href="#projects">Projects</a></li>
               <li><a href="#skills">Skills</a></li>
               <li><a href="#contact">Contact</a></li>
@@ -287,29 +430,23 @@
           </div>
 
           <div class="footerContact">
-            <h4 class="footerTitle">Contact Info</h4>
-            <div class="contactItem">
-              <span class="contactIcon"><i class="fas fa-envelope"></i></span>
+            <h4 class="footerTitle">Contact</h4>
+            <div class="footerContactItem">
+              <i class="fas fa-envelope"></i>
               <a href="mailto:jrxymnd18@gmail.com">jrxymnd18@gmail.com</a>
             </div>
-            <div class="contactItem">
-              <span class="contactIcon"><i class="fas fa-phone"></i></span>
+            <div class="footerContactItem">
+              <i class="fas fa-phone"></i>
               <a href="tel:+639989207040">0998-920-7040</a>
             </div>
           </div>
 
           <div class="footerSocial">
-            <h4 class="footerTitle">Follow Me</h4>
-            <div class="socialLinks">
-              <a href="#" class="socialLink" title="GitHub"
-                ><i class="fab fa-github"></i
-              ></a>
-              <a href="#" class="socialLink" title="LinkedIn"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-              <a href="#" class="socialLink" title="Facebook"
-                ><i class="fab fa-facebook"></i
-              ></a>
+            <h4 class="footerTitle">Socials</h4>
+            <div class="footerSocialLinks">
+              <a href="https://github.com/Lorkiii" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
           </div>
         </div>
@@ -317,11 +454,19 @@
         <div class="footerDivider"></div>
 
         <div class="footerBottom">
-          <p>&copy; 2025 John Raymond Nieto. All rights reserved.</p>
+          <p>&copy; 2026 John Raymond Nieto. All rights reserved.</p>
         </div>
       </div>
     </footer>
+
+    <!-- Back to Top -->
+    <a href="#hero" class="backToTop" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="./main/script.js"></script>
   </body>
 </html>
