@@ -1,6 +1,3 @@
-/* ============================================================
-   JR NIETO — PORTFOLIO SCRIPTS
-   ============================================================ */
 
 // ── Initialize AOS ──
 AOS.init({
@@ -20,7 +17,7 @@ AOS.init({
     'Full-Stack Developer',
     'Frontend Engineer',
     'Backend Developer',
-    'UI/UX Enthusiast',
+    'UI/UX Design',
     'Problem Solver'
   ];
 
