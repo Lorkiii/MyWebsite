@@ -15,7 +15,7 @@ AOS.init({
 
   const phrases = [
     'Full-Stack Developer',
-    'Frontend Engineer',
+    'Laravel Developer',
     'Backend Developer',
     'UI/UX Design',
     'Problem Solver'
@@ -213,22 +213,33 @@ AOS.init({
 
 // ── EmailJS Integration ──
 (function initEmailJS() {
-  function tryInit() {
-    if (typeof emailjs !== 'undefined') {
-      try {
-        emailjs.init('avEBP9pctGARIrLI6');
-        setupContactForm();
-      } catch (error) {
-        console.error('EmailJS initialization failed:', error);
-      }
-    } else {
-      setTimeout(tryInit, 100);
-    }
-  }
+  const defaultEmailJSConfig = {
+    serviceId: 'service_631804',
+    notificationTemplateId: 'template_ac988tv',
+    autoReplyTemplateId: 'template_lorxuml',
+    publicKey: 'jPX-GaGlYe2vsfaY9'
+  };
+
+  const emailjsConfig = {
+    ...defaultEmailJSConfig,
+    ...(window.EMAILJS_CONFIG || {})
+  };
 
   function setupContactForm() {
     const form = document.querySelector('.emailForm');
     if (!form) return;
+
+    if (typeof emailjs === 'undefined') {
+      console.error('EmailJS SDK did not load. Check the CDN script in index.html.');
+      return;
+    }
+
+    try {
+      emailjs.init(emailjsConfig.publicKey);
+    } catch (error) {
+      console.error('EmailJS initialization failed:', error);
+      return;
+    }
 
     const modal = document.getElementById('emailStatusModal');
     const modalIcon = document.getElementById('statusModalIcon');
@@ -270,8 +281,13 @@ AOS.init({
       });
     }
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
+
+      if (window.location.protocol === 'file:') {
+        openModal(true, 'EmailJS cannot send from a file:// URL. Open the site through localhost or a deployed domain, then whitelist that domain in EmailJS.');
+        return;
+      }
 
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
@@ -288,27 +304,70 @@ AOS.init({
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
       submitBtn.disabled = true;
 
-      emailjs.send('service_631804', 'template_ckht00e', {
-        name: name,
-        email: email,
+      const templateData = {
+        from_name: name,
+        reply_to: email,
+        to_name: name,
+        to_email: email,
+        user_name: name,
+        user_email: email,
         subject: subject,
-        message: message
-      }).then(
-        function () {
-          openModal(false, 'Your message was sent successfully. I\'ll get back to you soon!');
-          form.reset();
-          submitBtn.innerHTML = originalHTML;
-          submitBtn.disabled = false;
-        },
-        function (error) {
-          console.error('EmailJS error:', error);
-          openModal(true, 'Failed to send your message. Please try again later or email me directly.');
-          submitBtn.innerHTML = originalHTML;
-          submitBtn.disabled = false;
+        message: message,
+        name: name,
+        email: email
+      };
+
+      const autoReplyData = {
+        from_name: 'JR Nieto',
+        from_email: 'nietojohnraymond0918@gmail.com',
+        to_name: name,
+        to_email: email,
+        user_name: name,
+        user_email: email,
+        subject: `Re: ${subject}`,
+        message: message,
+        name: name,
+        email: email
+      };
+
+      const notificationTemplateId = emailjsConfig.notificationTemplateId || emailjsConfig.templateId;
+
+      if (!notificationTemplateId) {
+        openModal(true, 'Email setup is missing the notification template ID.');
+        submitBtn.innerHTML = originalHTML;
+        submitBtn.disabled = false;
+        return;
+      }
+
+      try {
+        await emailjs.send(emailjsConfig.serviceId, notificationTemplateId, templateData);
+
+        let autoReplyFailed = false;
+        if (emailjsConfig.autoReplyTemplateId) {
+          try {
+            await emailjs.send(emailjsConfig.serviceId, emailjsConfig.autoReplyTemplateId, autoReplyData);
+          } catch (autoReplyError) {
+            autoReplyFailed = true;
+            console.error('EmailJS auto-reply error:', autoReplyError);
+          }
         }
-      );
+
+        openModal(
+          false,
+          autoReplyFailed
+            ? 'Your message was sent. The confirmation email could not be delivered.'
+            : 'Your message was sent successfully. I\'ll get back to you soon!'
+        );
+        form.reset();
+      } catch (error) {
+        console.error('EmailJS error:', error);
+        openModal(true, 'Failed to send your message. Please try again later or email me directly.');
+      } finally {
+        submitBtn.innerHTML = originalHTML;
+        submitBtn.disabled = false;
+      }
     });
   }
 
-  tryInit();
+  setupContactForm();
 })();

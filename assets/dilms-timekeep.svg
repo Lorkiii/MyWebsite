@@ -1,0 +1,50 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0A0A0F"/>
+  <rect x="60" y="58" width="1160" height="684" rx="28" fill="#111118" stroke="#2A2A35" stroke-width="2"/>
+  <rect x="92" y="96" width="230" height="606" rx="22" fill="#16161D"/>
+  <circle cx="136" cy="144" r="20" fill="#64FFDA"/>
+  <text x="170" y="153" fill="#F0F0F5" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">DILMS</text>
+  <text x="118" y="205" fill="#64FFDA" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">TIMEKEEP</text>
+  <rect x="118" y="250" width="172" height="44" rx="12" fill="#64FFDA" fill-opacity="0.12" stroke="#64FFDA" stroke-opacity="0.35"/>
+  <text x="144" y="278" fill="#64FFDA" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Dashboard</text>
+  <rect x="118" y="318" width="172" height="44" rx="12" fill="#20202B"/>
+  <text x="144" y="346" fill="#A0A0B0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Attendance</text>
+  <rect x="118" y="386" width="172" height="44" rx="12" fill="#20202B"/>
+  <text x="144" y="414" fill="#A0A0B0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Monthly DTR</text>
+  <rect x="118" y="454" width="172" height="44" rx="12" fill="#20202B"/>
+  <text x="144" y="482" fill="#A0A0B0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Students</text>
+  <rect x="362" y="98" width="818" height="88" rx="22" fill="#16161D"/>
+  <text x="394" y="136" fill="#F0F0F5" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Internship Attendance Portal</text>
+  <text x="394" y="164" fill="#A0A0B0" font-family="Inter, Arial, sans-serif" font-size="16">Admin, supervisor, and student timekeeping workflow</text>
+  <rect x="1004" y="122" width="132" height="40" rx="20" fill="#64FFDA"/>
+  <text x="1031" y="148" fill="#0A0A0F" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Time In</text>
+  <rect x="362" y="222" width="240" height="140" rx="22" fill="#16161D" stroke="#2A2A35"/>
+  <text x="394" y="263" fill="#A0A0B0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Students</text>
+  <text x="394" y="313" fill="#F0F0F5" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="800">128</text>
+  <path d="M532 318C550 286 564 288 578 254" stroke="#64FFDA" stroke-width="5" stroke-linecap="round"/>
+  <rect x="632" y="222" width="240" height="140" rx="22" fill="#16161D" stroke="#2A2A35"/>
+  <text x="664" y="263" fill="#A0A0B0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">DTR Pending</text>
+  <text x="664" y="313" fill="#F0F0F5" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="800">24</text>
+  <rect x="902" y="222" width="278" height="140" rx="22" fill="#16161D" stroke="#2A2A35"/>
+  <text x="934" y="263" fill="#A0A0B0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Monthly Releases</text>
+  <text x="934" y="313" fill="#F0F0F5" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="800">18</text>
+  <rect x="362" y="398" width="510" height="258" rx="22" fill="#16161D" stroke="#2A2A35"/>
+  <text x="394" y="440" fill="#F0F0F5" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Attendance Timeline</text>
+  <line x1="414" y1="502" x2="812" y2="502" stroke="#2A2A35" stroke-width="3"/>
+  <circle cx="448" cy="502" r="14" fill="#64FFDA"/>
+  <circle cx="570" cy="502" r="14" fill="#64FFDA"/>
+  <circle cx="692" cy="502" r="14" fill="#64FFDA" fill-opacity="0.35" stroke="#64FFDA" stroke-width="3"/>
+  <circle cx="812" cy="502" r="14" fill="#64FFDA" fill-opacity="0.18" stroke="#64FFDA" stroke-width="3"/>
+  <text x="414" y="552" fill="#A0A0B0" font-family="Inter, Arial, sans-serif" font-size="14">Time In</text>
+  <text x="537" y="552" fill="#A0A0B0" font-family="Inter, Arial, sans-serif" font-size="14">Break</text>
+  <text x="660" y="552" fill="#A0A0B0" font-family="Inter, Arial, sans-serif" font-size="14">DTR</text>
+  <text x="776" y="552" fill="#A0A0B0" font-family="Inter, Arial, sans-serif" font-size="14">Release</text>
+  <rect x="902" y="398" width="278" height="258" rx="22" fill="#16161D" stroke="#2A2A35"/>
+  <text x="934" y="440" fill="#F0F0F5" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Role Access</text>
+  <rect x="934" y="476" width="214" height="38" rx="10" fill="#20202B"/>
+  <text x="958" y="501" fill="#F0F0F5" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Admin control</text>
+  <rect x="934" y="532" width="214" height="38" rx="10" fill="#20202B"/>
+  <text x="958" y="557" fill="#F0F0F5" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Supervisor signing</text>
+  <rect x="934" y="588" width="214" height="38" rx="10" fill="#20202B"/>
+  <text x="958" y="613" fill="#F0F0F5" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Student time log</text>
+</svg>
