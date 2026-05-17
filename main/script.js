@@ -17,6 +17,7 @@ AOS.init({
     'Full-Stack Developer',
     'Laravel Developer',
     'Backend Developer',
+    'AI-Assisted Developer',
     'UI/UX Design',
     'Problem Solver'
   ];
